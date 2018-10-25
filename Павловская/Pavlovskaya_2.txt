@@ -1,0 +1,65 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int size;
+    int max, product;
+    bool first, second, have_multiply_been_done;
+    cout << "enter array size: " ;
+    cin >> size;
+    int* array = new int[size];
+    cout << "enter array elements: ";
+    
+    for(int i = 0; i < size; i++)
+    {
+        cin >> array[i];
+    }
+    max = array[0];
+    for(int i = 0; i < size - 1; i++)
+    {
+        if(array[i+1] > max)
+            max = array[i+1];
+    }
+    
+    first = second = false;
+    product = 1;
+    have_multiply_been_done = false;
+    for(int i = 0; i < size; i++)
+    {
+        if(array[i] == 0)
+        {
+            if(first)
+                second = true;
+            else
+                first = true;
+        }
+         else if(first && !second)
+         {
+            product *= array[i];
+            have_multiply_been_done = true;
+         }
+    }
+    if(!second || !have_multiply_been_done)
+        product = 0;
+    
+        
+    for(int i = 0; i < size/2; i+=2)
+    {
+        int k = array[i];
+        array[i] = array[size/2+i];
+        array[size/2+i] = k;
+    }
+    
+    cout << "1) Max = " << max << endl;
+    if(!product)
+        cout << "2) Cannot found elements to multiply" << endl;
+    else
+        cout << "2) Product = " << product << endl;
+    
+    cout << endl;
+    for(int i = 0; i < size; i++)
+        cout << array[i] << "  ";
+    delete [] array;
+}

@@ -1,0 +1,69 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <cstdio>
+
+using namespace std;
+
+enum function_type {INTEGER, REAL};
+
+double F(double a, double b, double c, int x, function_type type);
+
+int main()
+{
+    double a, b, c;
+    int x_initial, x_final, step;
+    function_type type = REAL;
+    try
+    cout << "a = ";
+    cin >> a;
+    cout << endl << "b = ";
+    cin >> b;
+    cout << endl << "c = ";
+    cin >> c;
+    cout << endl << "X_initial = ";
+    cin >> x_initial;
+    cout << endl << "X_final = ";
+    cin >> x_final;
+    cout << endl << "step = ";
+    cin >> step;
+    cout << endl;
+  
+    if((((int)a | (int)b) ^ ((int)a | (int)c)) == 0)
+      type = INTEGER;
+  
+    cout << "Function values in the range from " << x_initial
+         << " to " << x_final << " are shown in the table below:" << endl << endl;
+    cout << "X      ";
+  
+    for(int i = x_initial; i < x_final; i +=step)
+        printf("%-12d", i);
+
+    cout << endl << "F(X)   ";
+  
+    for(int i = x_initial; i < x_final; i += step)
+    {
+        if(type == INTEGER)
+            printf("%-12d", (int)F(a, b, c, i, type));
+        else
+            printf("%-12.4f", F(a, b, c, i, type));
+        
+    }
+    cout << endl;
+}
+
+double F(double a, double b, double c, int x, function_type type)
+{
+    double result;
+    if(x < 5 && c != 0)
+        result = -(a*x*x) - b;
+    else if(x > 5 && c == 0)
+        result = (x - a)/x;
+    else 
+        result = (-x)/c;
+    
+    if(type == REAL)
+        return result;
+    else
+        return round(result);
+}

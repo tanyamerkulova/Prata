@@ -1,0 +1,120 @@
+#include <iostream>
+#include <ctime>
+
+#define DIM 4
+#define MAX 100
+#define MIN -MAX
+
+void generate(int matrix[][DIM]);
+void enter(int matrix[][DIM]);
+
+using namespace std;
+int main()
+{
+    int matrix[DIM][DIM];
+    int choice;
+    bool k[DIM];
+    bool have_negative[DIM];
+    int sum[DIM];
+    for(int i = 0; i < DIM; i++)
+    {
+        k[i] = 0;
+        sum[i] = 0;
+        have_negative[i] = 0;
+    }
+    cout << "Use randomly generated matrix / Manually enter matrix values (1/2): ";
+    cin >> choice;
+    switch(choice)
+    {
+        case 1: 
+            generate(matrix);
+            break;
+        case 2:
+            enter(matrix);
+            break;
+        default: 
+            cout << "You are allowed only to enter 1 or 2!!!! Goodbye))";
+            return 0;
+    }
+    
+    //1st
+    for(int i = 0; i < DIM; i++)
+    {
+        int count = 0;
+        for(int j = 0; j < DIM; j++)
+        {
+            if(matrix[i][j] == matrix[j][i])
+                count++;
+        }
+        if(count == DIM)
+            k[i] = 1;
+    }
+    
+    //2nd
+    for(int i = 0; i < DIM; i++)
+    {
+        for(int j = 0; j < DIM; j++)
+        {
+            if(matrix[i][j] < 0)
+            {
+               have_negative[i] = true;
+               break;
+            }
+        }
+    }
+    for(int i = 0; i < DIM; i++)
+    {
+        if(have_negative[i])
+        {
+            for(int j = 0; j < DIM; j++)
+                sum[i] += matrix[i][j];
+        }
+    }
+    
+    //vuvod
+    cout << endl;
+    bool equal_lines_exist = false;
+    bool negative_lines_exist = false;
+    for(int i = 0; i < DIM; i++)
+        if(k[i])
+        {
+            cout << i << " line equals to " << i << " column" << endl;
+            equal_lines_exist = true;
+        }
+    if(!equal_lines_exist)
+        cout << "There are no equal lines in this matrix" << endl;
+        
+    for(int i = 0; i < DIM; i++)
+    {
+        if(have_negative[i])
+        {
+            cout << "The sum of the elements in " << i << " line equals "
+                 << sum[i] << endl;
+            negative_lines_exist = true;
+        }
+    }
+    if(!negative_lines_exist)
+        cout << "There are no negative lines in this matrix" << endl;
+}
+
+void generate(int matrix[][DIM])
+{
+    srand(time(0));
+    for(int i = 0; i < DIM; i++)
+    {
+        for(int j = 0; j < DIM; j++)
+        {
+            matrix[i][j] = MIN + (rand() % (MAX - MIN + 1));
+            cout << matrix[i][j] << " ";
+        }
+        cout << endl;
+    }
+}
+
+void enter(int matrix[][DIM])
+{
+    cout << "Enter matrix:" << endl;
+    for(int i = 0; i < DIM; i++)
+        for(int j = 0; j < DIM; j++)
+            cin >> matrix[i][j];
+}

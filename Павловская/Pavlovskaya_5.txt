@@ -1,0 +1,32 @@
+#include <iostream>
+
+#define SIZE 8
+using namespace std;
+struct TIME
+{
+    unsigned short hours;
+    unsigned short minutes;
+};
+
+typedef struct
+{
+    char destination_point[50];
+    unsigned short train_number;
+    TIME _time;
+} TRAIN;
+
+
+int main()
+{
+    TRAIN array[SIZE];
+    for(int i = 0; i < SIZE; i++)
+    {
+        
+        cout << "Enter destination point: ";
+        cin >> array[i].destination_point;
+        cout << "Enter train number:";
+        cin >> array[i].train_number;
+        cout << "Enter departure time(hh mm): ";
+        cin >> array[i]._time.hours >> array[i]._time.minutes;
+    }
+}
