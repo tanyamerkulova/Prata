@@ -1,0 +1,14 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    const int x = 12;
+    int foot, inches;
+    cout << "Enter your height:__\b\b";
+    cin >> inches;
+    foot = inches / x;
+    inches %= x;
+    cout << "Yur height is " << foot << " foots and " << inches << " inches";
+}

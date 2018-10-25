@@ -1,0 +1,20 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    const int x = 12;
+    const float y = 2.2;
+    int foots, inches, pounds;
+    cout << "Enter your height in foots and inches.\nFoots: ";
+    cin >> foots;
+    cout << "Inches: ";
+    cin >> inches;
+    cout << "Enter your weight in pounds: ";
+    cin >> pounds;
+    int height = foots * x + inches;
+    float weight = pounds / y;
+    float BMI = weight / (height * height);
+    
+}

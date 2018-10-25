@@ -1,0 +1,23 @@
+#include <iostream>
+
+void first();
+void sec();
+
+using namespace std;
+int main()
+{
+    first();
+    first();
+    sec();
+    sec();
+}
+
+void first()
+{
+    cout << "Three blind mice" << endl;   
+}
+
+void sec()
+{
+    cout << "See how they run" << endl;
+}

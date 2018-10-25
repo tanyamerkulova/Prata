@@ -1,0 +1,14 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int miles, gallons;
+    cin.precision(10);
+    cout << "Enter miles: ";
+    cin >> miles;
+    cout << "Enter gallons: ";
+    cin >> gallons;
+    cout << "One gallon is enough for " << (double)miles / gallons << " miles";
+}

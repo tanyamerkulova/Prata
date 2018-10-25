@@ -1,0 +1,30 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    const int minute = 60;
+    const int hour = minute * 60;
+    const int day = 24 * hour;
+    long _seconds;
+    int days, hours, minutes, seconds;
+    cout << "Enter the number of seconds: ";
+    cin >> _seconds;
+    days = _seconds / day;
+    _seconds %= day;
+    hours = _seconds / hour;
+    _seconds %= hour;
+    minutes = _seconds / minute;
+    seconds = _seconds % minute;
+    
+    if(days)
+        cout << days << " days ";
+    if(hours)
+        cout << hours << " hours ";
+   
+    if(minutes)
+        cout << minutes << " minutes ";
+    if(seconds)
+        cout << seconds << " seconds ";
+}

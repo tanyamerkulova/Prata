@@ -1,0 +1,19 @@
+#include <iostream>
+
+void print(int hh, int mm);
+
+using namespace std;
+int main()
+{
+    int hh, mm;
+    cout << "Enter the number of hours: ";
+    cin >> hh;
+    cout << "Enter the number of minutes: ";
+    cin>> mm;
+    print(hh, mm);
+}
+
+void print(int hh, int mm)
+{
+    cout << "Time: " << hh << ":" << mm;   
+}

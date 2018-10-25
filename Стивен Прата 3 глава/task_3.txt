@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    const int x = 60;
+    cout << (int) x;
+    int degrees, minutes, seconds;
+    cout << "Enter a latitude.\nDegrees: ";
+    cin >> degrees;
+    cout << "Minutes: ";
+    cin >> minutes;
+    cout << "Seconds: ";
+    cin >> seconds;
+    
+    double new_degrees = degrees + (double)(minutes * (x + seconds)/(x * x));
+    
+    cout.precision(6);
+    cout << degrees << " degrees, " << minutes << " minutes, "
+         << seconds << " seconds = " << new_degrees << " degrees";
+}

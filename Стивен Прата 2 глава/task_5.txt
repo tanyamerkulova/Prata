@@ -1,0 +1,22 @@
+
+#include <iostream>
+
+using namespace std;
+double k(double d);
+int main()
+{ 
+    double n, d;
+    cout.precision(10);
+    cout<<"Enter the numÜer  of light  years: ";
+    cin >> n;
+   
+    cout << n << " light years = " << k(n) <<" astronomical units.";
+
+    return 0;
+}
+double k(double n)
+{
+    
+    n = 63240 * n;
+    return d;
+}

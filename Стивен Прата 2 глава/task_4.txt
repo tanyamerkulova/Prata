@@ -1,0 +1,20 @@
+
+#include <iostream>
+
+using namespace std;
+int k(int n);
+int main()
+{
+float n;
+cout << "Please enterà Celsius value: ";
+cin >> n;
+cout << n << " degrees Celsius ";
+
+cout << k(n) << " is degrees Fahrenheit. ";
+return 0;
+}
+int k(int n)
+{
+    n = (1.8 * n) + 32;
+    return n;
+}

@@ -1,0 +1,16 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    const float miles = 62.14;
+    const float gallon = 3.875;
+    float a;
+    cout << "Gas mileage in litres/100 km: ";
+    cin >> a;
+    float result = miles / (a / gallon);
+    cin.precision(20);
+    cout << result;
+    
+}
